@@ -10,3 +10,4 @@ This is the core for the game that handles items and characters.
 
 #### ToDo:
  * Characters that have slots for equipped items
+ * Create Items
