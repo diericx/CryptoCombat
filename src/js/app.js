@@ -47,6 +47,7 @@ App = {
       App.contracts.Adoption.setProvider(App.web3Provider);
 
       //Use our contract to retrieve and mark the adopted pets
+      App.testItemFactory();
       return App.markAdopted();
     });
 
