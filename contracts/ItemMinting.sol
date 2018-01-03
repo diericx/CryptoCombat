@@ -19,5 +19,6 @@ contract ItemMinting is ItemOwnership {
 
 // Truffle Commands
 //   truffle develop
+//   ItemBase.deployed().then(function(instance){return instance.getAllItems.call();}).then(function(value){return value});
 //   ItemMinting.deployed().then(function(instance){return instance.createRandomItem.call("name");}).then(function(value){return value});
 //   ItemFactory.deployed().then(function(instance){return instance.getItemCountForOwner();}).then(function(value){return value});

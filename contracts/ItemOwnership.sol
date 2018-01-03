@@ -22,9 +22,27 @@ contract ItemOwnership is ItemBase, ERC721 {
         itemIndexToApproved[_tokenId] = _approved;
     }
 
+    function totalSupply() public view returns (uint) {
+        return items.length - 1;
+    }
+
     // returns the number of tokens an address owns
     function balanceOf(address _owner) public view returns(uint count) {
         return ownershipTokenCount[_owner];
+    }
+
+    function ownerOf(uint _tokenId) external view returns(address owner) {
+        owner = itemIndexToOwner[_tokenId];
+        require(owner != address(0));
+    }
+
+    function approve(address _to, uint _tokenId) external {
+        // must own the token
+        require(_owns(msg.sender, _tokenId));
+        // Register the approval
+        _approve(_tokenId, _to);
+        // Emit approval event
+        Approval(msg.sender, _to, _tokenId);
     }
 
     // transfers a kitty to another address
@@ -39,22 +57,14 @@ contract ItemOwnership is ItemBase, ERC721 {
         _transfer(msg.sender, _to, _tokenId);
     }
 
-    function approve(address _to, uint _tokenId) external {
-        // must own the token
-        require(_owns(msg.sender, _tokenId));
-        // Register the approval
-        _approve(_tokenId, _to);
-        // Emit approval event
-        Approval(msg.sender, _to, _tokenId);
-    }
-
-    function totalSupply() public view returns (uint) {
-        return items.length - 1;
-    }
-
-    function ownerOf(uint _tokenId) external view returns(address owner) {
-        owner = itemIndexToOwner[_tokenId];
-        require(owner != address(0));
+    function transferFrom(
+        address _from,
+        address _to,
+        uint _tokenId
+    ) external
+    {
+        require(_to != address(0));
+        require()
     }
 
     function tokensOfOwner(address _owner) external view returns(uint[] ownedTokens) {
