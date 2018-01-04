@@ -38,9 +38,6 @@ contract ItemBase is ItemAccessControl {
     mapping (uint => address) public itemIndexToOwner;
     // count of how many token's an onwer has
     mapping (address => uint) ownershipTokenCount;
-    // Mapping of an item's index to an address that has been approved
-    //   to call TransferFrom()
-    mapping (uint => address) public itemIndexToApproved;
 
     function _transfer(address _from, address _to, uint _tokenId) internal {
         ownershipTokenCount[_to] ++;
@@ -49,21 +46,17 @@ contract ItemBase is ItemAccessControl {
         // When creating new kittens, _from is 0x0, but we can't account that address
         if (_from != address(0)) {
             ownershipTokenCount[_from] --;
-            // clear any previouslt approved ownership exchange
-            delete itemIndexToApproved[_tokenId];
         }
         //Emit the transfer event.
         Transfer(_from, _to, _tokenId);
     }
 
     function _createItem(string _name, uint _dna, address _owner) internal returns(uint) {
-
-        Item memory _item = Item({
+        // create the new item and add it to the item list
+        uint newItemId = items.push(Item({
             name: _name,
             dna: _dna
-        });
-        // create the new item and add it to the item list
-        uint newItemId = items.push(_item) - 1;
+        })) - 1;
         
         // Assign ownership and emit the Transfer event
         _transfer(0, _owner, newItemId);
@@ -88,6 +81,14 @@ contract ItemBase is ItemAccessControl {
         Item[]
     ) {
         return items;
+    }
+
+    function getItemCount() public view returns (uint count) {
+        return items.length;
+    }
+
+    function getItemCountForOwner() public view returns (uint) {
+        return ownershipTokenCount[msg.sender];
     }
     
 }

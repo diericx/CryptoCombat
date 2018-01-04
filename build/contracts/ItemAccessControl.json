@@ -1,0 +1,238 @@
+{
+  "contractName": "ItemAccessControl",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "cfoAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "ceoAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "cooAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6060604052341561000f57600080fd5b6101f88061001e6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630519ce791461005c5780630a0f8168146100b1578063b047fb5014610106575b600080fd5b341561006757600080fd5b61006f61015b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100bc57600080fd5b6100c4610181565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561011157600080fd5b6101196101a6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058209dcbf52bba99d45c409fd8e58342b13005c8ef1e73438a8b83f0935a4177ec610029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630519ce791461005c5780630a0f8168146100b1578063b047fb5014610106575b600080fd5b341561006757600080fd5b61006f61015b565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100bc57600080fd5b6100c4610181565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561011157600080fd5b6101196101a6565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a723058209dcbf52bba99d45c409fd8e58342b13005c8ef1e73438a8b83f0935a4177ec610029",
+  "sourceMap": "178:332:2:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "178:332:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;328:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;297;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;359;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;328;;;;;;;;;;;;;:::o;297:::-;;;;;;;;;;;;;:::o;359:::-;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\nimport './ERC721.sol';\n\n// This contract manages the various addresses and constraints for operations\n//   that can be executed only by specific roles.\ncontract ItemAccessControl {\n    // TODO - actual functionality for setting these\n    // These will not be set yet\n    address public ceoAddress;\n    address public cfoAddress;\n    address public cooAddress;\n\n    modifier onlyCEO() {\n        // TODO - uncomment this \n        // require(msg.sender == ceoAddress);\n        _;\n    }\n}",
+  "sourcePath": "/Users/Zac/Documents/Code/GitHub/Ethereum/CryptoCombat/contracts/ItemAccessControl.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/Zac/Documents/Code/GitHub/Ethereum/CryptoCombat/contracts/ItemAccessControl.sol",
+      "exportedSymbols": {
+        "ItemAccessControl": [
+          156
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 144,
+        "name": "PragmaDirective",
+        "src": "0:24:2"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 143,
+          "absolutePath": "/Users/Zac/Documents/Code/GitHub/Ethereum/CryptoCombat/contracts/ERC721.sol",
+          "file": "./ERC721.sol",
+          "scope": 157,
+          "symbolAliases": [
+            null
+          ],
+          "unitAlias": ""
+        },
+        "id": 145,
+        "name": "ImportDirective",
+        "src": "26:22:2"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            156
+          ],
+          "name": "ItemAccessControl",
+          "scope": 157
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "ceoAddress",
+              "scope": 156,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "type": "address"
+                },
+                "id": 146,
+                "name": "ElementaryTypeName",
+                "src": "297:7:2"
+              }
+            ],
+            "id": 147,
+            "name": "VariableDeclaration",
+            "src": "297:25:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "cfoAddress",
+              "scope": 156,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "type": "address"
+                },
+                "id": 148,
+                "name": "ElementaryTypeName",
+                "src": "328:7:2"
+              }
+            ],
+            "id": 149,
+            "name": "VariableDeclaration",
+            "src": "328:25:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "cooAddress",
+              "scope": 156,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "address",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "address",
+                  "type": "address"
+                },
+                "id": 150,
+                "name": "ElementaryTypeName",
+                "src": "359:7:2"
+              }
+            ],
+            "id": 151,
+            "name": "VariableDeclaration",
+            "src": "359:25:2"
+          },
+          {
+            "attributes": {
+              "name": "onlyCEO",
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 152,
+                "name": "ParameterList",
+                "src": "407:2:2"
+              },
+              {
+                "children": [
+                  {
+                    "id": 153,
+                    "name": "PlaceholderStatement",
+                    "src": "500:1:2"
+                  }
+                ],
+                "id": 154,
+                "name": "Block",
+                "src": "410:98:2"
+              }
+            ],
+            "id": 155,
+            "name": "ModifierDefinition",
+            "src": "391:117:2"
+          }
+        ],
+        "id": 156,
+        "name": "ContractDefinition",
+        "src": "178:332:2"
+      }
+    ],
+    "id": 157,
+    "name": "SourceUnit",
+    "src": "0:510:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-01-03T21:47:52.456Z"
+}

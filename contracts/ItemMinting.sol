@@ -1,19 +1,20 @@
 pragma solidity ^0.4.18;
 
-import './ItemOwnership.sol';
+import './ItemBase.sol';
 
-contract ItemMinting is ItemOwnership {
+contract ItemMinting is ItemBase {
 
     function _generateRandomDna(string _str) private view returns (uint) {
         uint rand = uint(keccak256(_str));
         return rand % dnaModulus;
     }
 
-    function createRandomItem(string _name, address _owner) public {
+    function createRandomItem(string _name) public returns(uint) {
         // player cannot generate more than 1 item
         // require(ownerItemCount[msg.sender] == 0);
         uint randDna = _generateRandomDna(_name);
-        _createItem(_name, randDna, _owner);
+        uint newItemId = _createItem(_name, randDna, msg.sender);
+        return newItemId;
     }
 }
 

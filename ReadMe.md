@@ -10,3 +10,14 @@ This is the core for the game that handles items and characters.
 
 #### ToDo:
  * Characters that have slots for equipped items
+
+### Commands:
+ * ItemMinting.deployed().then(function(instance){return instance.createRandomItem("seed");});
+
+ * ItemMinting.deployed().then(function(instance){return instance.getItemCountForOwner.call();}).then(function(value){return value.toNumber()});
+
+ * ItemMinting.deployed().then(function(instance){return instance.getItemInfo.call(0);}).then(function(value){return value});
+
+ * ItemMinting.deployed().then(function(instance){return instance.getItemCount.call();}).then(function(value){return value.toNumber()});
+
+ * ItemMinting.deployed().then(function(instance){return instance;});
